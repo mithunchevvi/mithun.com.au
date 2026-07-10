@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ExternalLink from "../components/ExternalLink.astro";
 import owlishScreenshot from "../assets/owlish-helpdesk.webp";
@@ -44,13 +45,19 @@ const links = {
         <ExternalLink href={links.linkedin} label="LinkedIn" />
         <ExternalLink href={links.github} label="GitHub" />
         <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
-          <span class="theme-toggle__thumb"></span>
+          <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
+            <Icon name="ph:sun" />
+          </span>
+          <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
+            <Icon name="ph:moon" />
+          </span>
         </button>
       </nav>
     </header>
 
     <main>
       <section class="hero section-padding">
+        <canvas class="hero-shader" data-hero-shader aria-hidden="true"></canvas>
         <div class="hero__top">
           <div class="hero__copy">
             <h1>Founder of Chevvi.<br />Builder of useful things.</h1>
@@ -183,6 +190,8 @@ const links = {
   </div>
 
   <script>
+    import { mountHeroShader } from "../scripts/heroShader";
+
     const toggle = document.querySelector<HTMLButtonElement>(".theme-toggle");
     const metaTheme = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
 
@@ -190,6 +199,10 @@ const links = {
       const isDark = document.documentElement.dataset.theme === "dark";
       toggle?.setAttribute(
         "aria-label",
+        isDark ? "Switch to light theme" : "Switch to dark theme",
+      );
+      toggle?.setAttribute(
+        "title",
         isDark ? "Switch to light theme" : "Switch to dark theme",
       );
       toggle?.setAttribute("aria-pressed", String(isDark));
@@ -204,5 +217,8 @@ const links = {
       localStorage.setItem("theme", next);
       syncToggle();
     });
+
+    const shaderCanvas = document.querySelector<HTMLCanvasElement>("[data-hero-shader]");
+    if (shaderCanvas) mountHeroShader(shaderCanvas);
   </script>
 </BaseLayout>

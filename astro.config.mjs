@@ -7,7 +7,7 @@ export default defineConfig({
   integrations: [
     icon({
       include: {
-        ph: ["arrow-up-right"],
+        ph: ["arrow-up-right", "sun", "moon"],
       },
     }),
   ],

@@ -5,6 +5,7 @@ Personal website for Mithun Rathinasamy, founder of Chevvi.
 ## Stack
 
 - Astro and TypeScript
+- Lightweight native WebGL hero shader with a reduced-motion fallback
 - Static deployment through GitHub Pages
 - Route 53 DNS for `mithun.com.au`
 

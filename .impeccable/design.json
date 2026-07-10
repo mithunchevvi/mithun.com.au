@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-10T12:14:00Z",
+  "title": "Design System: Mithun Rathinasamy Personal Website",
+  "extensions": {
+    "colorMeta": {
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#ffffff", "tonalRamp": ["#172024", "#354047", "#59656c", "#7f8b91", "#a7b1b5", "#cdd4d7", "#e8ecee", "#ffffff"] },
+      "deep-ink": { "role": "primary", "displayName": "Deep Ink", "canonical": "#0a1a24", "tonalRamp": ["#07131b", "#0a1a24", "#1b303b", "#3a4e58", "#61727a", "#89979d", "#b8c2c6", "#edf1f2"] },
+      "coral-signal": { "role": "primary", "displayName": "Coral Signal", "canonical": "#ff5a4f", "tonalRamp": ["#431713", "#70251f", "#a73730", "#d7473e", "#ff5a4f", "#ff8178", "#ffaaa4", "#ffe4e1"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero statement only." },
+      "headline": { "displayName": "Headline", "purpose": "Project and experience headings." },
+      "body": { "displayName": "Body", "purpose": "Descriptions and supporting copy." },
+      "label": { "displayName": "Label", "purpose": "Short section identifiers." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-out-quint", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Theme control and short interface transitions." },
+      { "name": "signal-field", "value": "requestAnimationFrame", "purpose": "Bounded hero shader, disabled for reduced motion." }
+    ],
+    "breakpoints": [
+      { "name": "compact", "value": "760px" },
+      { "name": "medium", "value": "1040px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Theme Button",
+      "kind": "button",
+      "refersTo": "theme-button",
+      "description": "Circular sun/moon control with explicit current-state iconography.",
+      "html": "<button class=\"ds-theme\" aria-label=\"Switch theme\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"/></svg></button>",
+      "css": ".ds-theme{display:grid;place-items:center;width:40px;height:40px;border:1px solid #c9ddda;border-radius:999px;background:#fff;color:#0a1a24;cursor:pointer;transition:transform 220ms cubic-bezier(.22,1,.36,1),background-color 220ms}.ds-theme svg{width:20px;height:20px}.ds-theme:hover{transform:rotate(12deg)}.ds-theme:focus-visible{outline:3px solid #ff5a4f;outline-offset:4px}"
+    },
+    {
+      "name": "Product Screen",
+      "kind": "custom",
+      "refersTo": "project-screen",
+      "description": "Thin screen surround that preserves the screenshot's native aspect ratio.",
+      "html": "<div class=\"ds-screen\"><div class=\"ds-screen-content\">Product screenshot</div></div>",
+      "css": ".ds-screen{aspect-ratio:144/83;padding:12px;border-radius:26px;background:#111820}.ds-screen-content{display:grid;place-items:center;width:100%;height:100%;border-radius:14px;background:#eef2f3;color:#0a1a24;font:500 16px Inter,system-ui,sans-serif}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Signal Field",
+    "overview": "Swiss-like precision with one live technical surface: a restrained topographic shader in the hero. Light and dark modes are equally authored.",
+    "keyCharacteristics": ["Large, tightly tracked sans-serif statements.", "Tinted neutral surfaces with deep teal-black structure.", "A single coral status signal used sparingly.", "Flat hierarchy through tone, rules, and spacing.", "One bounded shader field with an accessible static fallback."],
+    "rules": [
+      { "name": "The Signal Rule", "body": "Coral remains below ten percent of any viewport; its rarity makes it meaningful.", "section": "colors" },
+      { "name": "The One-Voice Rule", "body": "Use scale and spacing within Inter before introducing another font family.", "section": "typography" },
+      { "name": "The Flat-by-Default Rule", "body": "Do not add a shadow unless it communicates a real interaction or physical edge.", "section": "elevation" }
+    ],
+    "dos": ["Do preserve the native aspect ratio of every product screenshot.", "Do keep motion isolated to the hero and theme-state feedback.", "Do preserve complete keyboard operation and reduced-motion behavior."],
+    "donts": ["Don't use generic SaaS landing-page gradients or glassmorphism.", "Don't use ornamental device mockups or crop product screenshots.", "Don't use a generic unlabeled switch for theme selection."]
+  }
+}

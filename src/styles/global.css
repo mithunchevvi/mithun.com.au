@@ -132,39 +132,95 @@ ul {
 }
 
 .theme-toggle {
-  display: flex;
-  width: 50px;
-  height: 26px;
+  position: relative;
+  display: grid;
+  width: 40px;
+  height: 40px;
   flex: 0 0 auto;
   cursor: pointer;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 3px;
-  border: 1px solid #9aabb2;
-  border-radius: 14px;
-  background: transparent;
-}
-
-.theme-toggle__thumb {
-  width: 18px;
-  height: 18px;
+  place-items: center;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
   border-radius: 50%;
-  background: var(--ink);
-  transition: transform 220ms ease, background-color 220ms ease;
+  background: var(--fog);
+  color: var(--ink);
+  transition:
+    border-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-:root[data-theme="dark"] .theme-toggle__thumb {
-  transform: translateX(22px);
+.theme-toggle:hover {
+  border-color: var(--muted);
+  transform: rotate(8deg);
+}
+
+.theme-toggle:active {
+  transform: rotate(8deg) scale(0.94);
+}
+
+.theme-toggle__icon {
+  display: grid;
+  grid-area: 1 / 1;
+  place-items: center;
+  transition:
+    opacity 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.theme-toggle__icon,
+.theme-toggle__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.theme-toggle__icon--sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle__icon--moon {
+  opacity: 0;
+  transform: rotate(-80deg) scale(0.45);
+}
+
+:root[data-theme="dark"] .theme-toggle__icon--sun {
+  opacity: 0;
+  transform: rotate(80deg) scale(0.45);
+}
+
+:root[data-theme="dark"] .theme-toggle__icon--moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
 }
 
 .hero {
+  position: relative;
   display: flex;
   min-height: 720px;
   flex-direction: column;
   justify-content: space-between;
+  isolation: isolate;
+  overflow: hidden;
   padding-top: 80px;
   padding-bottom: 58px;
   background: var(--page);
+}
+
+.hero-shader {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero__top,
+.hero__footer {
+  position: relative;
+  z-index: 1;
 }
 
 .hero__top {
@@ -341,7 +397,6 @@ ul {
 .desktop-display {
   position: relative;
   width: min(1160px, 100%);
-  aspect-ratio: 16 / 10;
   overflow: hidden;
   padding: 12px;
   border-radius: 26px;
@@ -352,13 +407,12 @@ ul {
 .desktop-display img {
   display: block;
   width: 100%;
-  height: 100%;
 }
 
 .desktop-display img {
+  height: auto;
   border-radius: 14px;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
 }
 
 .desktop-display__notch {

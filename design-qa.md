@@ -1,5 +1,13 @@
 # Design QA
 
+## July 10 polish revision
+
+- Added the theme-aware WebGL Signal Field behind the hero. The field uses a capped device-pixel ratio, pauses outside the viewport, follows pointer movement, and renders a fixed frame when reduced motion is enabled.
+- Replaced the generic switch with a circular sun/moon control. Browser interaction verified the icon, `aria-label`, `aria-pressed`, persisted theme, theme color, and shader palette all update together.
+- Removed the 16:10 screenshot crop. The Owlish source is now rendered at its native 144:83 ratio with `object-fit: contain`; measured desktop bounds are 1136 x 655 inside a 1160 x 679 frame, with both horizontal edges visible.
+- Rechecked at 1440 x 900 and 390 x 844. The mobile document width and body width both remain exactly 390px, with no horizontal overflow.
+- Browser console health: no warnings or errors in either theme or viewport.
+
 - Source visual truth: `/Users/mithun/Downloads/Mithun — Founder Variation · Light.png`
 - Implementation: `http://127.0.0.1:4321/`
 - Desktop screenshot: `tmp/qa/implementation-light-full-1440.png`
