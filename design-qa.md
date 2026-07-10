@@ -8,7 +8,7 @@
 - Rechecked at 1440 x 900 and 390 x 844. The mobile document width and body width both remain exactly 390px, with no horizontal overflow.
 - Browser console health: no warnings or errors in either theme or viewport.
 
-- Source visual truth: `/Users/mithun/Downloads/Mithun — Founder Variation · Light.png`
+- Source visual truth: the accepted Paper founder variation in light mode.
 - Implementation: `http://127.0.0.1:4321/`
 - Desktop screenshot: `tmp/qa/implementation-light-full-1440.png`
 - Mobile screenshots: `tmp/qa/implementation-mobile-hero-390.png`, `tmp/qa/implementation-mobile-owlish-390.png`, `tmp/qa/implementation-mobile-mikan-390.png`
@@ -38,7 +38,7 @@ The Paper source and final Astro render were normalized to the same 720px column
 
 ## Interaction and browser checks
 
-- Page identity: passed (`Mithun Rathinasamy — Founder of Chevvi`).
+- Page identity: passed (`Mithun Rathinasamy | Founder of Chevvi`).
 - Meaningful content / no blank shell: passed.
 - Framework error overlay: none.
 - Console warnings and errors: none.
