@@ -55,9 +55,9 @@ const fragmentSource = `
     vec3 lineColor = mix(lightLine, darkLine, u_dark);
     lineColor = mix(lineColor, signal, pointerGlow * 0.10);
 
-    float baseAlpha = mix(0.095, 0.13, u_dark);
+    float baseAlpha = mix(0.125, 0.13, u_dark);
     float alpha = lineField * baseAlpha * (0.68 + lowerRightBias * 0.32);
-    alpha += pointerGlow * mix(0.014, 0.022, u_dark);
+    alpha += pointerGlow * mix(0.017, 0.022, u_dark);
 
     gl_FragColor = vec4(lineColor * alpha, alpha);
   }
