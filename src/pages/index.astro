@@ -1,0 +1,208 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ExternalLink from "../components/ExternalLink.astro";
+import owlishScreenshot from "../assets/owlish-helpdesk.webp";
+import mikanPrompt from "../assets/mikan-prompt.jpeg";
+import mikanResult from "../assets/mikan-result.jpeg";
+
+const companies = [
+  "SEEK",
+  "SBS",
+  "ABC News",
+  "EY",
+  "Deloitte",
+  "Oracle",
+  "Alinta Energy",
+  "Cognizant",
+  "Rackspace",
+];
+
+const links = {
+  owlish: "https://chevvi.com/owlish/",
+  mikan: "https://chevvi.com/mikan/",
+  chevvi: "https://chevvi.com/",
+  linkedin: "https://www.linkedin.com/in/mithunchevvi/",
+  github: "https://github.com/mithunchevvi",
+};
+---
+
+<BaseLayout
+  title="Mithun Rathinasamy — Founder of Chevvi"
+  description="Sydney-based software engineer and founder of Chevvi, building AI products across full-stack web, cloud, and iOS."
+>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="wordmark" href="/" aria-label="Mithun Rathinasamy, home">
+        Mithun Rathinasamy
+      </a>
+
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <ExternalLink href={links.owlish} label="Owlish" />
+        <ExternalLink href={links.mikan} label="Mikan AI" />
+        <ExternalLink href={links.chevvi} label="Chevvi" />
+        <ExternalLink href={links.linkedin} label="LinkedIn" />
+        <ExternalLink href={links.github} label="GitHub" />
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <span class="theme-toggle__thumb"></span>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section-padding">
+        <div class="hero__top">
+          <div class="hero__copy">
+            <h1>Founder of Chevvi.<br />Builder of useful things.</h1>
+            <p>
+              I’m Mithun—a Sydney-based software engineer working across AI
+              products, full-stack web, cloud, and iOS.
+            </p>
+          </div>
+
+          <aside class="chevvi-card" aria-label="Chevvi products">
+            <p class="eyebrow">Chevvi / Est. 2024</p>
+            <div class="chevvi-card__products">
+              <ExternalLink href={links.owlish} label="Owlish" />
+              <ExternalLink href={links.mikan} label="Mikan AI" />
+            </div>
+            <div class="location-note">
+              <span class="location-note__dot" aria-hidden="true"></span>
+              <span>Designed and shipped in Sydney</span>
+            </div>
+          </aside>
+        </div>
+
+        <div class="hero__footer eyebrow">
+          <span>Selected products</span>
+          <span>Build · Learn · Ship</span>
+        </div>
+      </section>
+
+      <section class="project project--owlish section-padding" id="owlish">
+        <div class="project__intro">
+          <div class="project__heading">
+            <p class="eyebrow">01 / Owlish</p>
+            <h2>Customer support,<br />grounded in knowledge.</h2>
+          </div>
+          <div class="project__summary">
+            <p>
+              A B2B platform for deploying AI support agents across websites,
+              teams, APIs, and MCP-enabled tools.
+            </p>
+            <ExternalLink
+              href={links.owlish}
+              label="View the Chevvi case study"
+              class="project__link"
+            />
+          </div>
+        </div>
+
+        <div class="desktop-stage" aria-label="Owlish helpdesk product screenshot">
+          <div class="desktop-display">
+            <Image
+              src={owlishScreenshot}
+              alt="Owlish helpdesk showing an inbox, customer conversation, source-backed answer, and AI handoff summary"
+              widths={[640, 960, 1280, 1600]}
+              sizes="(max-width: 768px) 92vw, 81vw"
+              loading="eager"
+            />
+            <span class="desktop-display__notch" aria-hidden="true"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="project project--mikan section-padding" id="mikan-ai">
+        <div class="project__intro">
+          <div class="project__heading">
+            <p class="eyebrow">02 / Mikan AI</p>
+            <h2>A prompt becomes<br />a finished video.</h2>
+          </div>
+          <div class="project__summary">
+            <p>
+              A shipped iOS app spanning script, voiceover, generated visuals,
+              captions, music, and export.
+            </p>
+            <ExternalLink
+              href={links.mikan}
+              label="View the Chevvi case study"
+              class="project__link"
+            />
+          </div>
+        </div>
+
+        <div class="phone-gallery" aria-label="Mikan AI prompt and result screens">
+          <figure class="phone-frame">
+            <Image
+              src={mikanPrompt}
+              alt="Mikan AI prompt screen creating an astronomy video about black holes"
+              widths={[420, 630, 840]}
+              sizes="(max-width: 720px) 76vw, 29vw"
+            />
+          </figure>
+          <figure class="phone-frame">
+            <Image
+              src={mikanResult}
+              alt="Mikan AI generated video result about black holes"
+              widths={[420, 630, 840]}
+              sizes="(max-width: 720px) 76vw, 29vw"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="experience section-padding">
+        <div class="experience__top">
+          <p class="eyebrow">Before Chevvi</p>
+          <div class="experience__content">
+            <h2>14+ years building software alongside teams at</h2>
+            <ul aria-label="Selected companies">
+              {companies.map((company) => <li>{company}</li>)}
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience__footer">
+          <p>Chevvi is where I turn ideas into shipped products.</p>
+          <ExternalLink href={links.chevvi} label="Visit chevvi.com" />
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-padding">
+      <div>
+        <p class="site-footer__headline">Ideas are better when they ship.</p>
+        <p class="site-footer__location">Sydney, Australia</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ExternalLink href={links.chevvi} label="Chevvi" />
+        <ExternalLink href={links.linkedin} label="LinkedIn" />
+        <ExternalLink href={links.github} label="GitHub" />
+      </nav>
+    </footer>
+  </div>
+
+  <script>
+    const toggle = document.querySelector<HTMLButtonElement>(".theme-toggle");
+    const metaTheme = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+
+    const syncToggle = () => {
+      const isDark = document.documentElement.dataset.theme === "dark";
+      toggle?.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light theme" : "Switch to dark theme",
+      );
+      toggle?.setAttribute("aria-pressed", String(isDark));
+      metaTheme?.setAttribute("content", isDark ? "#0A1A24" : "#FFFFFF");
+    };
+
+    syncToggle();
+
+    toggle?.addEventListener("click", () => {
+      const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem("theme", next);
+      syncToggle();
+    });
+  </script>
+</BaseLayout>

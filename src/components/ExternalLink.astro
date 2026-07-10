@@ -1,0 +1,23 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  href: string;
+  label: string;
+  class?: string;
+  ariaLabel?: string;
+}
+
+const { href, label, class: className, ariaLabel } = Astro.props;
+---
+
+<a
+  class:list={["external-link", className]}
+  href={href}
+  target="_blank"
+  rel="noreferrer"
+  aria-label={ariaLabel ?? `${label} (opens in a new tab)`}
+>
+  <span>{label}</span>
+  <Icon name="ph:arrow-up-right" aria-hidden="true" />
+</a>
