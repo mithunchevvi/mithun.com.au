@@ -442,10 +442,6 @@ ul {
   background: var(--navy);
 }
 
-:root[data-theme="dark"] .phone-frame {
-  background: #ffffff;
-}
-
 .phone-frame picture,
 .phone-frame img {
   display: block;
