@@ -433,6 +433,10 @@ ul {
   gap: 48px;
 }
 
+.phone-gallery__hint {
+  display: none;
+}
+
 .phone-frame {
   width: min(420px, 31vw);
   aspect-ratio: 945 / 2048;
@@ -732,15 +736,47 @@ ul {
   }
 
   .phone-gallery {
-    width: 100%;
-    flex-direction: column;
-    gap: 28px;
+    width: calc(100% + 48px);
+    justify-content: flex-start;
+    gap: 16px;
+    margin-inline: -24px;
+    padding: 4px 24px 18px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-padding-inline: 24px;
+    scroll-snap-type: inline mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .phone-gallery::-webkit-scrollbar {
+    display: none;
+  }
+
+  .phone-gallery__hint {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-bottom: 14px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .phone-gallery__hint span {
+    color: var(--ink);
+    font-size: 18px;
   }
 
   .phone-frame {
-    width: min(360px, 86vw);
+    flex: 0 0 min(360px, 78vw);
+    width: auto;
     padding: 8px;
     border-radius: 42px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
   .phone-frame img {

@@ -138,7 +138,15 @@ const links = {
           </div>
         </div>
 
-        <div class="phone-gallery" aria-label="Mikan AI prompt and result screens">
+        <p class="phone-gallery__hint">
+          Swipe to see both screens <span aria-hidden="true">→</span>
+        </p>
+        <div
+          class="phone-gallery"
+          role="region"
+          aria-label="Mikan AI prompt and result screens"
+          tabindex="0"
+        >
           <figure class="phone-frame">
             <Image
               src={mikanPrompt}
