@@ -433,10 +433,6 @@ ul {
   gap: 48px;
 }
 
-.phone-gallery__hint {
-  display: none;
-}
-
 .phone-frame {
   width: min(420px, 31vw);
   aspect-ratio: 945 / 2048;
@@ -751,23 +747,6 @@ ul {
 
   .phone-gallery::-webkit-scrollbar {
     display: none;
-  }
-
-  .phone-gallery__hint {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 8px;
-    margin-bottom: 14px;
-    color: var(--muted);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-  }
-
-  .phone-gallery__hint span {
-    color: var(--ink);
-    font-size: 18px;
   }
 
   .phone-frame {
